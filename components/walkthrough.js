@@ -6,7 +6,11 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default class Walkthrough extends React.Component {
+export class Walkthrough extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   _renderItem = ({item}) => {
     let {width} = Dimensions.get('window');
     return (
@@ -15,6 +19,7 @@ export default class Walkthrough extends React.Component {
       </View>
     );
   };
+  
   _onScrollEnd = e => {
     let contentOffset = e.nativeEvent.contentOffset;
     let viewSize = e.nativeEvent.layoutMeasurement;
@@ -27,7 +32,7 @@ export default class Walkthrough extends React.Component {
   render() {
     let items = this.props.children;
     return (
-      <FlatList
+      <FlatList 
         style={styles.list}
         data={items}
         onMomentumScrollEnd={this._onScrollEnd}
@@ -39,7 +44,7 @@ export default class Walkthrough extends React.Component {
         directionalLockEnabled
         renderItem={this._renderItem}
       />
-    );
+    )
   }
 }
 
