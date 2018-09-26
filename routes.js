@@ -1,22 +1,14 @@
 import { createStackNavigator } from 'react-navigation';
-import HomeScreen from './src/screens/Home';
-import LoginScreen from './src/screens/Login';
-import SplashScreen from './src/screens/Splash';
+import {WalkthroughScreen} from './screens/walkthroughs';
 
 const RouteStack = createStackNavigator(
   {
-    Splash: {
-      screen: SplashScreen
-    },
-    Home: {
-      screen: HomeScreen
-    },
-    Login: {
-      screen: LoginScreen
+    Walkthrough: {
+      screen: WalkthroughScreen
     }
   },
   {
-    initialRouteName: 'Splash'
+    initialRouteName: 'Walkthrough'
   }
 );
 

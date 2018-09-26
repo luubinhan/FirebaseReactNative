@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Image,
@@ -6,7 +6,7 @@ import {
   KeyboardAvoidingView,
   Text,
   StyleSheet
-} from 'react-native';
+} from "react-native";
 import {
   RkButton,
   RkText,
@@ -14,38 +14,38 @@ import {
   RkStyleSheet,
   RkTheme,
   RkAvoidKeyboard
-} from 'react-native-ui-kitten';
+} from "react-native-ui-kitten";
 //import {GradientButton} from '../../components/'
 
 export class Screen1 extends React.Component {
   static navigationOptions = {
     header: null
-  }
+  };
   render() {
-    return (   
+    return (
       <View>
-        <RkText rkType='h1'>Screen 1</RkText>
-      </View>       
-    )
+        <RkText rkType="h1">Screen 1</RkText>
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: "space-around"
   },
   content: {
-    justifyContent: 'space-between'
+    justifyContent: "space-between"
   },
   save: {
     marginVertical: 20
   },
   footer: {
-    justifyContent: 'flex-end'
+    justifyContent: "flex-end"
   },
   textRow: {
-    flexDirection: 'row',
-    justifyContent: 'center'
+    flexDirection: "row",
+    justifyContent: "center"
   }
-})
+});
