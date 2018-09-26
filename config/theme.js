@@ -1,80 +1,79 @@
-import {scale, scaleVertical} from '../utils/scale'
+import { scale, scaleVertical } from "../utils/scale";
 
 const Colors = {
-  accent: '#ff2824',
-  primary: '#f64e59',
-  success: '#3bd555',
-  disabled: '#cacaca',
+  accent: "#ff2824",
+  primary: "#f64e59",
+  success: "#3bd555",
+  disabled: "#cacaca",
 
-  foreground: '#212121',
-  alterForeground: '#707070',
-  inverseForeground: '#ffffff',
-  secondaryForeground: '#bcbcbc',
-  hintForeground: '#969696',
-  highlight: '#bcbcbc',
+  foreground: "#212121",
+  alterForeground: "#707070",
+  inverseForeground: "#ffffff",
+  secondaryForeground: "#bcbcbc",
+  hintForeground: "#969696",
+  highlight: "#bcbcbc",
 
-  background: '#ffffff',
-  alterBackground: '#f2f2f2',
-  overlayBackground: '#00000057',
-  neutralBackground: '#f2f2f2',
-  fadedBackground:'#e5e5e5',
+  background: "#ffffff",
+  alterBackground: "#f2f2f2",
+  overlayBackground: "#00000057",
+  neutralBackground: "#f2f2f2",
+  fadedBackground: "#e5e5e5",
 
-  border: '#f2f2f2',
+  border: "#f2f2f2",
 
-  twitter: '#41abe1',
-  google: '#e94335',
-  facebook: '#3b5998',
+  twitter: "#41abe1",
+  google: "#e94335",
+  facebook: "#3b5998",
 
-  gradientBaseBegin: '#ff9147',
-  gradientBaseEnd: '#ff524c',
-  gradientVisaBegin:'#63e2ff',
-  gradientVisaEnd:'#712ec3',
-  gradientMasterBegin:'#febb5b',
-  gradientMasterEnd:'#f24645',
-  gradientAxpBegin:'#42e695',
-  gradientAxpEnd:'#3bb2bb',
+  gradientBaseBegin: "#ff9147",
+  gradientBaseEnd: "#ff524c",
+  gradientVisaBegin: "#63e2ff",
+  gradientVisaEnd: "#712ec3",
+  gradientMasterBegin: "#febb5b",
+  gradientMasterEnd: "#f24645",
+  gradientAxpBegin: "#42e695",
+  gradientAxpEnd: "#3bb2bb",
 
   // -----
-  faded: '#e5e5e5',
-  icon: '#c2c2c2',
-  neutral: '#f2f2f2',
+  faded: "#e5e5e5",
+  icon: "#c2c2c2",
+  neutral: "#f2f2f2",
 
+  info: "#19bfe5",
+  warning: "#feb401",
+  danger: "#ed1c4d",
 
-  info: '#19bfe5',
-  warning: '#feb401',
-  danger: '#ed1c4d',
+  starsStat: "#2ab5fa",
+  tweetsStat: "#ffc61c",
+  likesStat: "#5468ff",
 
-  starsStat: '#2ab5fa',
-  tweetsStat: '#ffc61c',
-  likesStat: '#5468ff',
+  doughnutFirst: "#8a98ff",
+  doughnutSecond: "#ffd146",
+  doughnutThird: "#c2d521",
+  doughnutFourth: "#ff6b5c",
 
-  doughnutFirst: '#8a98ff',
-  doughnutSecond: '#ffd146',
-  doughnutThird: '#c2d521',
-  doughnutFourth: '#ff6b5c',
+  followersProgress: "#c2d521",
 
-  followersProgress: '#c2d521',
+  followersFirst: "#b3e5fc",
+  followersSecond: "#81d4fa",
+  followersThird: "#4fc3f7",
+  followersFourth: "#42a5f5",
 
-  followersFirst: '#b3e5fc',
-  followersSecond: '#81d4fa',
-  followersThird: '#4fc3f7',
-  followersFourth: '#42a5f5',
-
-  chartsAreaStroke:'#097fe5',
-  chartsAreaFill: '#d6ecff'
-}
+  chartsAreaStroke: "#097fe5",
+  chartsAreaFill: "#d6ecff"
+};
 
 const Fonts = {
-  light: 'Roboto-Light',
-  regular: 'Roboto-Regular',
-  bold: 'Roboto-Medium',
-  logo: 'Righteous-Regular',
+  light: "Roboto-Light",
+  regular: "Roboto-Regular",
+  bold: "Roboto-Medium",
+  logo: "Righteous-Regular"
 };
 
 const FontBaseValue = scale(18);
 
 export const KittenTheme = {
-  name: 'light',
+  name: "light",
   colors: {
     accent: Colors.accent,
     primary: Colors.primary,
@@ -88,13 +87,13 @@ export const KittenTheme = {
       secondary: Colors.secondaryForeground,
       accent: Colors.accent,
       inverse: Colors.inverseForeground,
-      hint: Colors.alterForeground,
+      hint: Colors.alterForeground
     },
     input: {
       text: Colors.alterForeground,
       background: Colors.background,
       label: Colors.secondaryForeground,
-      placeholder: Colors.secondaryForeground,
+      placeholder: Colors.secondaryForeground
     },
     screen: {
       base: Colors.background,
@@ -112,18 +111,18 @@ export const KittenTheme = {
       base: Colors.border,
       accent: Colors.accent,
       secondary: Colors.secondaryForeground,
-      highlight: Colors.highlight,
+      highlight: Colors.highlight
     },
     control: {
       background: Colors.background
     },
-    badge:{
+    badge: {
       likeBackground: Colors.primary,
       likeForeground: Colors.inverseForeground,
       plusBackground: Colors.success,
-      plusForeground: Colors.inverseForeground,
+      plusForeground: Colors.inverseForeground
     },
-    chat:{
+    chat: {
       messageInBackground: Colors.neutralBackground,
       messageOutBackground: Colors.fadedBackground,
       text: Colors.foreground
@@ -132,17 +131,27 @@ export const KittenTheme = {
       base: [Colors.gradientBaseBegin, Colors.gradientBaseEnd],
       visa: [Colors.gradientVisaBegin, Colors.gradientVisaEnd],
       mastercard: [Colors.gradientMasterBegin, Colors.gradientMasterEnd],
-      axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd],
+      axp: [Colors.gradientAxpBegin, Colors.gradientAxpEnd]
     },
     dashboard: {
       stars: Colors.starsStat,
       tweets: Colors.tweetsStat,
-      likes: Colors.likesStat,
+      likes: Colors.likesStat
     },
-    charts:{
+    charts: {
       followersProgress: Colors.followersProgress,
-      doughnut: [Colors.doughnutFirst, Colors.doughnutSecond, Colors.doughnutThird, Colors.doughnutFourth],
-      followersArea: [Colors.followersFirst, Colors.followersSecond, Colors.followersThird, Colors.followersFourth],
+      doughnut: [
+        Colors.doughnutFirst,
+        Colors.doughnutSecond,
+        Colors.doughnutThird,
+        Colors.doughnutFourth
+      ],
+      followersArea: [
+        Colors.followersFirst,
+        Colors.followersSecond,
+        Colors.followersThird,
+        Colors.followersFourth
+      ],
       area: {
         stroke: Colors.chartsAreaStroke,
         fill: Colors.chartsAreaFill
@@ -170,11 +179,11 @@ export const KittenTheme = {
       s6: scale(13),
       s7: scale(10),
       base: FontBaseValue,
-      small: FontBaseValue * .8,
+      small: FontBaseValue * 0.8,
       medium: FontBaseValue,
       large: FontBaseValue * 1.2,
       xlarge: FontBaseValue / 0.75,
-      xxlarge: FontBaseValue * 1.6,
+      xxlarge: FontBaseValue * 1.6
     },
     lineHeights: {
       medium: 18,

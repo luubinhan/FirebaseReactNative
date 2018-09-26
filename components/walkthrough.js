@@ -1,25 +1,16 @@
-import React from 'react';
-import {
-  View,
-  FlatList,
-  Dimensions,
-  StyleSheet
-} from 'react-native';
+import React from "react";
+import { View, FlatList, Dimensions, StyleSheet } from "react-native";
 
 export class Walkthrough extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  _renderItem = ({item}) => {
-    let {width} = Dimensions.get('window');
-    return (
-      <View style={[styles.item, {width: width}]}>
-        {item}
-      </View>
-    );
+  _renderItem = ({ item }) => {
+    let { width } = Dimensions.get("window");
+    return <View style={[styles.item, { width: width }]}>{item}</View>;
   };
-  
+
   _onScrollEnd = e => {
     let contentOffset = e.nativeEvent.contentOffset;
     let viewSize = e.nativeEvent.layoutMeasurement;
@@ -27,16 +18,16 @@ export class Walkthrough extends React.Component {
     if (this.props.onChanged) {
       this.props.onChanged(pageNum);
     }
-  }
+  };
 
   render() {
     let items = this.props.children;
     return (
-      <FlatList 
+      <FlatList
         style={styles.list}
         data={items}
         onMomentumScrollEnd={this._onScrollEnd}
-        keyExtractor={(item) => items.indexOf(item)}
+        keyExtractor={item => items.indexOf(item).toString()}
         pagingEnabled={true}
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -44,7 +35,7 @@ export class Walkthrough extends React.Component {
         directionalLockEnabled
         renderItem={this._renderItem}
       />
-    )
+    );
   }
 }
 

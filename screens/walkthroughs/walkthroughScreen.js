@@ -37,7 +37,7 @@ export class WalkthroughScreen extends React.Component {
           style={styles.button}
           text="GET STARTED"
           onPress={() => {
-            this.props.navigate.goBack();
+            this.props.navigation.navigate('Login');
           }}
         />
       </View>
