@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "FirebaseReactNative",
-    "description": "This project is really great.",
+    "description": "Fire base react native sample",
     "slug": "FirebaseReactNative",
     "privacy": "public",
     "sdkVersion": "30.0.0",
@@ -21,7 +21,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.anluu.firebasereactnative",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.anluu.firebasereactnative"
     }
   }
 }
