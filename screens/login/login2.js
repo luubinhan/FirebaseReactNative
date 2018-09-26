@@ -8,7 +8,7 @@ import {
   RkStyleSheet,
   RkTheme
 } from "react-native-ui-kitten";
-import { FontAwesome } from "../../assets/icons";
+import { Ionicons } from '@expo/vector-icons';
 import { GradientButton } from "../../components/gradientButton";
 import { scale, scaleModerate, scaleVertical } from "../../utils/scale";
 
@@ -44,7 +44,6 @@ export class LoginV2 extends React.Component {
         <View style={styles.header}>
           {renderIcon()}
           <RkText rkType="light h1">React Native</RkText>
-          <RkText rkType="logo h0">UI Kitten</RkText>
         </View>
         <View style={styles.content}>
           <View>
@@ -65,19 +64,25 @@ export class LoginV2 extends React.Component {
           </View>
           <View style={styles.buttons}>
             <RkButton style={styles.button} rkType="social">
-              <RkText rkType="awesome hero">{FontAwesome.twitter}</RkText>
+              <RkText rkType="awesome hero">
+                <Ionicons name="logo-facebook" size={18} color="white" />
+              </RkText>
             </RkButton>
             <RkButton style={styles.button} rkType="social">
-              <RkText rkType="awesome hero">{FontAwesome.google}</RkText>
+              <RkText rkType="awesome hero">
+                <Ionicons name="logo-googleplus" size={18} color="white" />
+              </RkText>
             </RkButton>
             <RkButton style={styles.button} rkType="social">
-              <RkText rkType="awesome hero">{FontAwesome.facebook}</RkText>
+              <RkText rkType="awesome hero">
+                <Ionicons name="logo-twitter" size={18} color="white" />
+              </RkText>
             </RkButton>
           </View>
 
           <View style={styles.footer}>
             <View style={styles.textRow}>
-              <RkText rkType="primary3">Don't have an account?</RkText>
+              <RkText rkType="primary3" onPress={() => this.props.navigation.navigate('PasswordRecovery')}>Forgot Password?</RkText>
               <RkButton
                 rkType="clear"
                 onPress={() => this.props.navigation.navigate("SignUp")}
@@ -123,7 +128,7 @@ let styles = RkStyleSheet.create(theme => ({
   },
   textRow: {
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: 'space-between'
   },
   button: {
     borderColor: theme.colors.border.solid
