@@ -7,10 +7,10 @@ import {
   RkTheme,
   RkAvoidKeyboard
 } from "react-native-ui-kitten";
-import { GradientButton } from "../../components";
-import { scale, scaleModerate, scaleVertical } from "../../utils/scale";
+import { GradientButton } from "../components";
+import { scale, scaleModerate, scaleVertical } from "../utils/scale";
 
-export default class PasswordRecovery extends React.Component {
+export default class ScreenPasswordRecovery extends React.Component {
   static navigationOptions = {
     header: null
   };
@@ -21,14 +21,14 @@ export default class PasswordRecovery extends React.Component {
         return (
           <Image
             style={styles.image}
-            source={require("../../assets/images/logo.png")}
+            source={require("../assets/images/logo.png")}
           />
         );
       }
       return (
         <Image
           style={styles.image}
-          source={require("../../assets/images/logoDark.png")}
+          source={require("../assets/images/logoDark.png")}
         />
       );
     };

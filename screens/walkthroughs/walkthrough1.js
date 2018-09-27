@@ -1,35 +1,31 @@
 import React from "react";
-import { Image, View } from "react-native";
-import { RkText, RkStyleSheet, RkTheme } from "react-native-ui-kitten";
+import { Image, View, Text, StyleSheet, Dimensions } from "react-native";
+import { RkText } from "react-native-ui-kitten";
 
 export class Walkthrough1 extends React.Component {
   render() {
-    let image =
-      RkTheme.current.name === "light" ? (
-        <Image source={require("../../assets/images/kittenImage.png")} />
-      ) : (
-        <Image source={require("../../assets/images/kittenImageDark.png")} />
-      );
-
     return (
       <View style={styles.screen}>
-        {image}
+        <Image
+          source={require("../../assets/images/welcome.jpg")}
+        />
         <RkText rkType="header2" style={styles.text}>
-          Welcome to Kitten Tricks
+          Chào mừng đến với AquiZ
         </RkText>
+        <Text>Công cụ làm tạo trắc nghiệm từ A đến Z</Text>
       </View>
     );
   }
 }
 
-let styles = RkStyleSheet.create(theme => ({
+let styles = StyleSheet.create({
   screen: {
-    backgroundColor: theme.colors.screen.base,
     alignItems: "center",
     justifyContent: "center",
-    flex: 1
+    flex: 1,
+    padding: 20
   },
   text: {
     marginTop: 20
   }
-}));
+});

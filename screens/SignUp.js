@@ -8,30 +8,15 @@ import {
   RkTheme,
   RkAvoidKeyboard
 } from "react-native-ui-kitten";
-import { GradientButton } from "../../components/";
-import { scale, scaleModerate, scaleVertical } from "../../utils/scale";
+import { GradientButton } from "../components/";
+import PrimaryButton from '../components/PrimaryButton';
+import { scale, scaleModerate, scaleVertical } from "../utils/scale";
 
-export default class SignUp extends React.Component {
+export default class SignUpScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
   render() {
-    let renderIcon = () => {
-      if (RkTheme.current.name === "light") {
-        return (
-          <Image
-            style={styles.image}
-            source={require("../../assets/images/logo.png")}
-          />
-        );
-      }
-      return (
-        <Image
-          style={styles.image}
-          source={require("../../assets/images/logoDark.png")}
-        />
-      );
-    };
     return (
       <RkAvoidKeyboard
         style={styles.screen}
@@ -39,40 +24,35 @@ export default class SignUp extends React.Component {
         onResponderRelease={e => Keyboard.dismiss()}
       >
         <View style={{ alignItems: "center" }}>
-          {renderIcon()}
-          <RkText rkType="h1">Registration</RkText>
+          <Image
+            style={styles.image}
+            source={require("../assets/images/logo.png")}
+          />
+          <RkText rkType="h1">Đăng ký</RkText>
         </View>
         <View style={styles.content}>
           <View>
-            <RkTextInput rkType="rounded" placeholder="Name" />
             <RkTextInput rkType="rounded" placeholder="Email" />
             <RkTextInput
-              rkType="rounded"
-              placeholder="Password"
+              placeholder="Mật khẩu"
               secureTextEntry={true}
             />
-            <RkTextInput
-              rkType="rounded"
-              placeholder="Confirm Password"
-              secureTextEntry={true}
-            />
-            <GradientButton
+            <PrimaryButton
               style={styles.save}
-              rkType="large"
-              text="SIGN UP"
               onPress={() => {
-                this.props.navigation.goBack();
+                this.props.navigation.navigate('App');
               }}
-            />
+            >
+              Đăng ký
+            </PrimaryButton>
           </View>
           <View style={styles.footer}>
             <View style={styles.textRow}>
-              <RkText rkType="primary3">Already have an account?</RkText>
               <RkButton
                 rkType="clear"
                 onPress={() => this.props.navigation.navigate("Login")}
               >
-                <RkText rkType="header6"> Sign in now </RkText>
+                <RkText rkType="header6"> Đăng nhập </RkText>
               </RkButton>
             </View>
           </View>

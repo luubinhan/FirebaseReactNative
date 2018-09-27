@@ -27,7 +27,11 @@ export class GradientButton extends RkComponent {
 
     return (
       <RkButton rkType="stretch" style={[button, style]} {...otherProps}>
-        {this.renderContent(textStyle)}
+        <LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={{ padding: 15, alignItems: 'center', flexGrow: 'grow', flexShrink: 0 }}>
+          {this.renderContent(textStyle)}
+        </LinearGradient>
       </RkButton>
     );
   }

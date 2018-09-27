@@ -1,16 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  TouchableHighlight,
-  View,
-  FlatList,
-  StyleSheet
-} from 'react-native';
-import {
-  RkStyleSheet,
-  RkTheme,
-  RkTheme
-} from 'react-native-ui-kitten'
+import React from "react";
+import PropTypes from "prop-types";
+import { TouchableHighlight, View, FlatList, StyleSheet } from "react-native";
+import { RkStyleSheet, RkTheme } from "react-native-ui-kitten";
 
 export class CategoryMenu extends React.Component {
   constructor(props) {
@@ -21,14 +12,14 @@ export class CategoryMenu extends React.Component {
       this.renderRow = this._renderRow.bind(this);
       this.navigate = this._navigate.bind(this);
     }
-    this.state = {selected: true};
+    this.state = { selected: true };
   }
 
   _navigate(row) {
     if (row.action) {
-      this.props.navigation.navigate(row.action)
+      this.props.navigation.navigate(row.action);
     } else {
-      this.props.navigation.navigate(row.id)
+      this.props.navigation.navigate(row.id);
     }
   }
 
@@ -43,14 +34,12 @@ export class CategoryMenu extends React.Component {
         }}
       >
         <View>
-          <RkText>
-            {row.item.title}
-          </RkText>
+          <RkText>{row.item.title}</RkText>
         </View>
       </TouchableHighlight>
-    )
+    );
   }
-  
+
   _keyExtractor(item, index) {
     return item.id;
   }
@@ -59,11 +48,9 @@ export class CategoryMenu extends React.Component {
     if (this.isEmpty) {
       return (
         <View style={styles.emptyContainer}>
-          <RkText rkType='light subtitle'>
-            Comming Soon...
-          </RkText>
+          <RkText rkType="light subtitle">Comming Soon...</RkText>
         </View>
-      )
+      );
     } else {
       return (
         <FlatList
@@ -72,7 +59,7 @@ export class CategoryMenu extends React.Component {
           keyExtractor={this._keyExtractor}
           renderItem={this.renderRow}
         />
-      )
+      );
     }
   }
 }
@@ -82,20 +69,20 @@ let styles = RkStyleSheet.create(theme => ({
     paddingVertical: 32,
     paddingHorizontal: 16,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: theme.colors.border.base,
+    borderColor: theme.colors.border.base
   },
   list: {
     backgroundColor: theme.colors.screen.base
   },
   emptyContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: theme.colors.screen.base
   }
-}))
+}));
 
 CategoryMenu.propTypes = {
   navigation: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired
-}
+};

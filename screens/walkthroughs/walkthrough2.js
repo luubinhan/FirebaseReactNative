@@ -22,7 +22,7 @@ export class Walkthrough2 extends React.Component {
       <View style={styles.screen}>
         {image}
         <RkText rkType="haeder2" style={styles.text}>
-          Explore different example of frequently used pages
+          Ghi nhớ kiến thức bằng trắc nghiệm
         </RkText>
       </View>
     );

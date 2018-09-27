@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, Keyboard } from "react-native";
+import { View, Image, Keyboard, StyleSheet } from "react-native";
 import {
   RkButton,
   RkText,
@@ -9,32 +9,15 @@ import {
   RkTheme
 } from "react-native-ui-kitten";
 import { Ionicons } from '@expo/vector-icons';
-import { GradientButton } from "../../components/gradientButton";
-import { scale, scaleModerate, scaleVertical } from "../../utils/scale";
+import PrimaryButton from '../components/PrimaryButton';
+import { scale, scaleModerate, scaleVertical } from "../utils/scale";
 
-export class LoginV2 extends React.Component {
+export default class LoginScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
 
   render() {
-    let renderIcon = () => {
-      if (RkTheme.current.name === "light") {
-        return (
-          <Image
-            style={styles.image}
-            source={require("../../assets/images/logo.png")}
-          />
-        );
-      }
-      return (
-        <Image
-          style={styles.image}
-          source={require("../../assets/images/logoDark.png")}
-        />
-      );
-    };
-
     return (
       <RkAvoidKeyboard
         style={styles.screen}
@@ -42,25 +25,28 @@ export class LoginV2 extends React.Component {
         onResponderRelease={e => Keyboard.dismiss()}
       >
         <View style={styles.header}>
-          {renderIcon()}
-          <RkText rkType="light h1">React Native</RkText>
+          <Image
+            style={styles.image}
+            source={require("../assets/images/logo.png")}
+          />
+          <RkText rkType="light h1">AquiZ</RkText>
         </View>
         <View style={styles.content}>
           <View>
-            <RkTextInput rkType="rounded" placeholder="Username" />
+            <RkTextInput rkType="rounded" placeholder="Email" />
             <RkTextInput
               rkType="rounded"
-              placeholder="Password"
+              placeholder="Mật khẩu"
               secureTextEntry={true}
             />
-            <GradientButton
+            <PrimaryButton
               style={styles.save}
-              rkType="large"
-              text="Login"
               onPress={() => {
-                this.props.navigation.goBack();
+                this.props.navigation.navigate('App');
               }}
-            />
+            >
+              Đăng nhập
+            </PrimaryButton>
           </View>
           <View style={styles.buttons}>
             <RkButton style={styles.button} rkType="social">
@@ -82,12 +68,12 @@ export class LoginV2 extends React.Component {
 
           <View style={styles.footer}>
             <View style={styles.textRow}>
-              <RkText rkType="primary3" onPress={() => this.props.navigation.navigate('PasswordRecovery')}>Forgot Password?</RkText>
+              <RkText rkType="primary3" onPress={() => this.props.navigation.navigate('PasswordRecovery')}>Quên mật khẩu</RkText>
               <RkButton
                 rkType="clear"
                 onPress={() => this.props.navigation.navigate("SignUp")}
               >
-                <RkText rkType="header6">Sign Up Now</RkText>
+                <RkText rkType="header6">Đăng ký</RkText>
               </RkButton>
             </View>
           </View>
@@ -97,12 +83,11 @@ export class LoginV2 extends React.Component {
   }
 }
 
-let styles = RkStyleSheet.create(theme => ({
+let styles = StyleSheet.create({
   screen: {
     padding: scaleVertical(16),
     flex: 1,
-    justifyContent: "space-between",
-    backgroundColor: theme.colors.screen.base
+    justifyContent: "space-between"
   },
   image: {
     height: scaleVertical(77),
@@ -130,8 +115,5 @@ let styles = RkStyleSheet.create(theme => ({
     flexDirection: "row",
     justifyContent: 'space-between'
   },
-  button: {
-    borderColor: theme.colors.border.solid
-  },
   footer: {}
-}));
+});
