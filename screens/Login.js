@@ -33,9 +33,8 @@ export default class LoginScreen extends React.Component {
         </View>
         <View style={styles.content}>
           <View>
-            <RkTextInput rkType="rounded" placeholder="Email" />
+            <RkTextInput placeholder="Email" />
             <RkTextInput
-              rkType="rounded"
               placeholder="Mật khẩu"
               secureTextEntry={true}
             />

@@ -32,7 +32,7 @@ export default class SignUpScreen extends React.Component {
         </View>
         <View style={styles.content}>
           <View>
-            <RkTextInput rkType="rounded" placeholder="Email" />
+            <RkTextInput placeholder="Email" />
             <RkTextInput
               placeholder="Mật khẩu"
               secureTextEntry={true}

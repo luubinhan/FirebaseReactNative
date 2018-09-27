@@ -1,38 +1,20 @@
 import React from "react";
-import { View, Image, Keyboard } from "react-native";
+import { View, Image, Keyboard, Text, StyleSheet } from "react-native";
 import {
-  RkStyleSheet,
-  RkText,
   RkTextInput,
   RkTheme,
   RkAvoidKeyboard
 } from "react-native-ui-kitten";
 import { GradientButton } from "../components";
+import PrimaryButton from '../components/PrimaryButton';
 import { scale, scaleModerate, scaleVertical } from "../utils/scale";
 
-export default class ScreenPasswordRecovery extends React.Component {
+export default class PasswordRecoveryScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
 
   render() {
-    let renderIcon = () => {
-      if (RkTheme.current.name === "light") {
-        return (
-          <Image
-            style={styles.image}
-            source={require("../assets/images/logo.png")}
-          />
-        );
-      }
-      return (
-        <Image
-          style={styles.image}
-          source={require("../assets/images/logoDark.png")}
-        />
-      );
-    };
-
     return (
       <RkAvoidKeyboard
         behavior="position"
@@ -41,29 +23,28 @@ export default class ScreenPasswordRecovery extends React.Component {
         onResponderRelease={e => Keyboard.dismiss()}
       >
         <View style={styles.content}>
-          <RkTextInput rkType="rounded" placeholder="Email" />
-          <RkText rkType="secondary5 secondaryColor center">
-            Enter your email below to receive your password reset instructions
-          </RkText>
+          <RkTextInput placeholder="Email" />
+          <Text>
+            Chúng tôi sẽ gởi hướng dẫn đặt lại mật khẩu vào email
+          </Text>
         </View>
-        <GradientButton
+        <PrimaryButton
           style={styles.save}
-          rkType="large"
-          text="SEND"
           onPress={() => this.props.navigation.goBack()}
-        />
+        >
+          Gởi
+        </PrimaryButton>
       </RkAvoidKeyboard>
     );
   }
 }
 
-let styles = RkStyleSheet.create(theme => ({
+let styles = StyleSheet.create({
   screen: {
     flex: 1,
     paddingHorizontal: 16,
     paddingVertical: scaleVertical(24),
-    justifyContent: "space-between",
-    backgroundColor: theme.colors.screen.base
+    justifyContent: "space-between"
   },
   header: {
     alignItems: "center"
@@ -76,4 +57,4 @@ let styles = RkStyleSheet.create(theme => ({
   content: {
     alignItems: "center"
   }
-}));
+});
