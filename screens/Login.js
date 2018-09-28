@@ -1,15 +1,16 @@
 import React from "react";
-import { View, Image, Keyboard, StyleSheet } from "react-native";
+import { Text, View, Image, Keyboard, StyleSheet, KeyboardAvoidingView, TextInput } from "react-native";
 import {
   RkButton,
   RkText,
   RkTextInput,
-  RkAvoidKeyboard,
   RkStyleSheet,
-  RkTheme
+  RkTheme,
+  RkAvoidKeyboard
 } from "react-native-ui-kitten";
 import { Ionicons } from '@expo/vector-icons';
 import PrimaryButton from '../components/PrimaryButton';
+import Button from '../components/Button';
 import { scale, scaleModerate, scaleVertical } from "../utils/scale";
 
 export default class LoginScreen extends React.Component {
@@ -25,46 +26,32 @@ export default class LoginScreen extends React.Component {
         onResponderRelease={e => Keyboard.dismiss()}
       >
         <View style={styles.header}>
-          <Image
-            style={styles.image}
-            source={require("../assets/images/logo.png")}
-          />
-          <RkText rkType="light h1">AquiZ</RkText>
+          <RkText rkType="xxlarge">AquiZ</RkText>
+        </View>
+        <View style={styles.buttons}>
+          <Button style={styles.buttonFacebook}>
+            <Ionicons name="logo-facebook" color="#fff" size={18} />
+          </Button>
+          <Button style={styles.buttonGoogle}>
+            <Ionicons name="logo-googleplus" color="#fff" size={18} />
+          </Button>
         </View>
         <View style={styles.content}>
           <View>
-            <RkTextInput placeholder="Email" />
-            <RkTextInput
-              placeholder="Mật khẩu"
-              secureTextEntry={true}
-            />
+            <View style={styles.emailWrapper}>
+              <Text style={styles.label}>Email</Text>
+              <TextInput style={styles.emailInput} />
+            </View>
+            <View style={styles.passwordWrapper}>
+              <Text style={styles.label}>Mật khẩu</Text>
+              <TextInput secureTextEntry={true} style={styles.emailInput} />
+            </View>
             <PrimaryButton
               style={styles.save}
-              onPress={() => {
-                this.props.navigation.navigate('App');
-              }}
             >
               Đăng nhập
             </PrimaryButton>
           </View>
-          <View style={styles.buttons}>
-            <RkButton style={styles.button} rkType="social">
-              <RkText rkType="awesome hero">
-                <Ionicons name="logo-facebook" size={18} color="white" />
-              </RkText>
-            </RkButton>
-            <RkButton style={styles.button} rkType="social">
-              <RkText rkType="awesome hero">
-                <Ionicons name="logo-googleplus" size={18} color="white" />
-              </RkText>
-            </RkButton>
-            <RkButton style={styles.button} rkType="social">
-              <RkText rkType="awesome hero">
-                <Ionicons name="logo-twitter" size={18} color="white" />
-              </RkText>
-            </RkButton>
-          </View>
-
           <View style={styles.footer}>
             <View style={styles.textRow}>
               <RkText rkType="primary3" onPress={() => this.props.navigation.navigate('PasswordRecovery')}>Quên mật khẩu</RkText>
@@ -84,19 +71,49 @@ export default class LoginScreen extends React.Component {
 
 let styles = StyleSheet.create({
   screen: {
-    padding: scaleVertical(16),
+    padding: scaleVertical(30),
     flex: 1,
+    backgroundColor: '#f8fafb',
     justifyContent: "space-between"
   },
-  image: {
-    height: scaleVertical(77),
-    resizeMode: "contain"
-  },
   header: {
-    paddingBottom: scaleVertical(10),
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1
+    paddingTop: 30
+  },
+  label: {
+    color: '#999'
+  },
+  passwordWrapper: {
+    backgroundColor: '#fff',
+    padding: 15,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowRadius: 5,
+    shadowOpacity: 0.1,
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5
+  },
+  emailWrapper: {
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    shadowRadius: 5,
+    shadowOpacity: 0.1,
+    padding: 15
+  },
+  emailInput: {
+    paddingVertical: 10,
+    borderRadius: 5,
+    lineHeight: 20,
+    borderBottomWidth: 0,
+    borderColor: '#ccc'
   },
   content: {
     justifyContent: "space-between"
@@ -105,14 +122,22 @@ let styles = StyleSheet.create({
     marginVertical: 20
   },
   buttons: {
-    flexDirection: "row",
-    marginBottom: scaleVertical(24),
-    marginHorizontal: 24,
-    justifyContent: "space-around"
+    justifyContent: 'space-between',
+    alignSelf: "stretch",
+    flexDirection: 'row'
+  },
+  buttonFacebook: {
+    minWidth: '47%',
+    justifyContent: 'center',
+    backgroundColor: '#3F5C99'
+  },
+  buttonGoogle: {
+    minWidth: '47%',
+    justifyContent: 'center',
+    backgroundColor: '#DC4A38'
   },
   textRow: {
     flexDirection: "row",
     justifyContent: 'space-between'
-  },
-  footer: {}
+  }
 });

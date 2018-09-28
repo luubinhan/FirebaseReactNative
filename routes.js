@@ -7,7 +7,7 @@ import PasswordRecoveryScreen from './screens/PasswordRecovery';
 
 const AuthStack = createStackNavigator(
   {
-    Walkthrough: WalkthroughScreen,
+    Walkthrough: LoginScreen,
     Login: LoginScreen,
     SignUp: SignUpScreen,
     PasswordRecovery: PasswordRecoveryScreen

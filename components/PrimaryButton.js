@@ -12,7 +12,7 @@ class PrimaryButton extends Component {
       >
         <LinearGradient
           colors={['#3f88fb', '#37a0f6']}
-          style={{ padding: 15, alignSelf: 'stretch', alignItems: 'center', borderRadius: 3 }}
+          style={styles.gradient}
         >
           <Text style={styles.text}>
             { children}
@@ -30,6 +30,13 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch'
   },
   text: {
-    color: '#fff'
+    color: '#fff',
+    fontWeight: 'bold'
+  },
+  gradient: {
+    padding: 15,
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    borderRadius: 5
   }
 });
